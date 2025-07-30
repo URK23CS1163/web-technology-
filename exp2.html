@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drawing Competition Registration</title>
+  <style>
+    :root {
+      --bg-color: #121212;
+      --form-bg: #1f1f1f;
+      --text-color: #f1f1f1;
+      --accent-color: #00bcd4;
+      --input-bg: #2c2c2c;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--accent-color);
+      margin-bottom: 30px;
+    }
+
+    form {
+      background-color: var(--form-bg);
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 800px;
+      margin: auto;
+      box-shadow: 0 0 15px rgba(0, 188, 212, 0.3);
+    }
+
+    fieldset {
+      border: 1px solid var(--accent-color);
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+
+    legend {
+      font-weight: bold;
+      color: var(--accent-color);
+      padding: 0 8px;
+    }
+
+    label {
+      display: block;
+      margin-top: 12px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #444;
+      border-radius: 5px;
+      background-color: var(--input-bg);
+      color: var(--text-color);
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+      width: auto;
+      margin-right: 8px;
+    }
+
+    .btns {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+      background-color: var(--accent-color);
+      border: none;
+      color: #000;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      flex: 1;
+    }
+
+    input[type="submit"]:hover,
+    input[type="reset"]:hover {
+      background-color: #00acc1;
+    }
+
+    @media (max-width: 600px) {
+      .btns {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Drawing Competition Registration</h1>
+
+  <form action="servletreg" method="post">
+
+    <fieldset>
+      <legend>Participant Info</legend>
+
+      <label for="name">Full Name *</label>
+      <input type="text" id="name" name="name" required placeholder="Your Name" />
+
+      <label for="email">Email *</label>
+      <input type="email" id="email" name="email" required placeholder="email@example.com" />
+
+      <label for="phone">Phone *</label>
+      <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required placeholder="10-digit number" />
+
+      <label for="age">Age *</label>
+      <input type="number" id="age" name="age" required min="5" max="25" />
+
+      <label for="dob">Date of Birth</label>
+      <input type="date" id="dob" name="dob" />
+
+      <label for="website">Portfolio URL</label>
+      <input type="url" id="website" name="website" placeholder="https://yourart.com" />
+    </fieldset>
+
+    <fieldset>
+      <legend>Competition Details</legend>
+
+      <label>Category *</label>
+      <input type="radio" name="category" value="junior" required /> Junior (5–12)
+      <input type="radio" name="category" value="senior" /> Senior (13–25)
+
+      <label for="theme">Theme *</label>
+      <select name="theme" id="theme" required>
+        <option value="">-- Select Theme --</option>
+        <option value="nature">Nature</option>
+        <option value="freedom">Freedom</option>
+        <option value="dreams">Dreams</option>
+        <option value="technology">Technology</option>
+      </select>
+
+      <label>Materials Used *</label>
+      <input type="checkbox" name="materials" value="pencil" /> Pencil
+      <input type="checkbox" name="materials" value="paint" /> Paint
+      <input type="checkbox" name="materials" value="digital" /> Digital
+      <input type="checkbox" name="materials" value="other" /> Other
+
+      <label for="artfile">Upload Artwork *</label>
+      <input type="file" id="artfile" name="artfile" required />
+
+      <label for="desc">Artwork Description</label>
+      <textarea id="desc" name="desc" rows="4" placeholder="Describe your art..."></textarea>
+    </fieldset>
+
+    <fieldset>
+      <legend>Feedback</legend>
+
+      <label for="search">How did you find us?</label>
+      <input type="search" id="search" name="search" placeholder="e.g., Instagram, Website" />
+
+      <label for="feedback">Any suggestions?</label>
+      <textarea id="feedback" name="feedback" rows="3" placeholder="We value your input!"></textarea>
+    </fieldset>
+
+    <div class="btns">
+      <input type="submit" value="Register Now" />
+      <input type="reset" value="Clear" />
+    </div>
+  </form>
+
+</body>
+</html>
